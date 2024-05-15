@@ -1,110 +1,92 @@
-Openfire ![alt tag](https://raw.githubusercontent.com/igniterealtime/IgniteRealtime-Website/main/src/main/webapp/images/logo_openfire.gif)
-========
-[![Openfire CI](https://github.com/igniterealtime/Openfire/workflows/Openfire%20CI/badge.svg?branch=main)](https://github.com/igniterealtime/Openfire/actions?query=workflow%3A%22Openfire+CI%22+branch%3Amain)  [![Project Stats](https://www.openhub.net/p/Openfire/widgets/project_thin_badge.gif)](https://www.openhub.net/p/Openfire)
-
-About
------
-[Openfire] is a real time collaboration (RTC) server licensed under the Open Source Apache License. It uses the only widely adopted open protocol for instant messaging, XMPP (also called Jabber). Openfire is incredibly easy to setup and administer, but offers rock-solid security and performance.
-
-[Openfire] is a XMPP server licensed under the Open Source Apache License.
-
-[Openfire] - an [Ignite Realtime] community project.
-
-Bug Reporting
--------------
-
-Only a few users have access for filling bugs in the tracker. New
-users should:
-
-1. Create a Discourse account
-2. Login to a Discourse account
-3. Click on the New Topic button
-4. Choose the [Openfire Dev category](https://discourse.igniterealtime.org/c/openfire/openfire-dev) and provide a detailed description of the bug.
-
-Please search for your issues in the bug tracker before reporting.
-
-Resources
----------
-
-- Documentation: http://www.igniterealtime.org/projects/openfire/documentation.jsp
-- Community: https://discourse.igniterealtime.org/c/openfire
-- Bug Tracker: https://igniterealtime.atlassian.net/browse/OF
-- Nightly Builds: http://www.igniterealtime.org/downloads/nightly_openfire.jsp
-
-Ignite Realtime
-===============
-
-[Ignite Realtime] is an Open Source community composed of end-users and developers around the world who 
-are interested in applying innovative, open-standards-based Real Time Collaboration to their businesses and organizations. 
-We're aimed at disrupting proprietary, non-open standards-based systems and invite you to participate in what's already one 
-of the biggest and most active Open Source communities.
-
-[Openfire]: http://www.igniterealtime.org/projects/openfire/index.jsp
-[Ignite Realtime]: http://www.igniterealtime.org
-[XMPP (Jabber)]: http://xmpp.org/
-
-Making changes
-==============
-The project uses [Maven](https://maven.apache.org/) and as such should import straight in to your favourite Java IDE.
-The directory structure is fairly straightforward. The main code is contained in:
-
-* `Openfire/xmppserver` - a Maven module representing the core code for Openfire itself
-
-Other folders are:  
-* `Openfire/build` - various files use to create installers for different platforms
-* `Openfire/distribution` - a Maven module used to bring all the parts together
-* `Openfire/documentation` - the documentation hosted at [igniterealtime.org](https://www.igniterealtime.org/projects/openfire/documentation.jsp)
-* `Openfire/i18n` - files used for internationalisation of the admin interface
-* `Openfire/plugins` - Maven configuration files to allow the various [plugins](https://www.igniterealtime.org/projects/openfire/plugins.jsp) available to be built
-* `Openfire/starter` - a small module that allows Openfire to start in a consistent manner on different platforms
-
-To build the complete project including plugins, run the command
-```
-./mvnw verify
-```  
-
-However much of the time it is only necessary to make changes to the core XMPP server itself in which case the command
-```
-./mvnw verify -pl distribution -am 
-```  
-will compile the core server and any dependencies, and then assemble it in to something that can be run. 
-
-Testing your changes
---------------------
-
-#### IntelliJ IDEA:
-
-1. Run -> Edit Configurations... -> Add Application
-2. fill in following values
-    1. Name: Openfire
-    2. Use classpath of module: starter
-    3. Main class: org.jivesoftware.openfire.starter.ServerStarter
-    4. VM options (adapt accordingly):
-        ````
-        -DopenfireHome="-absolute path to your project folder-\distribution\target\distribution-base" 
-        -Xverify:none
-        -server
-        -Dlog4j.configurationFile="-absolute path to your project folder-\distribution\target\distribution-base\lib\log4j2.xml"
-        -Dopenfire.lib.dir="-absolute path to your project folder-\distribution\target\distribution-base\lib"
-        -Dfile.encoding=UTF-8
-       ````
-   5. Working directory: -absolute path to your project folder-
-3. apply
-
-You need to execute `mvnw verify` before you can launch openfire.
-
-#### Other IDE's:
-
-Although your IDE will happily compile the project, unfortunately it's not possible to run Openfire from within the 
-IDE - it must be done at the command line. After building the project using Maven, simply run the shell script or 
-batch file to start Openfire;
-```
-./distribution/target/distribution-base/bin/openfire.sh
-```
-or
-```
-.\distribution\target\distribution-base\bin\openfire.bat
-```
-
-Adding `-debug` as the first parameter to the script will start the server in debug mode, and your IDE should be able
-to attach a remote debugger if necessary.
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开火</font></font><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer nofollow" href="https://raw.githubusercontent.com/igniterealtime/IgniteRealtime-Website/main/src/main/webapp/images/logo_openfire.gif" data-target="animated-image.originalLink"><img src="https://raw.githubusercontent.com/igniterealtime/IgniteRealtime-Website/main/src/main/webapp/images/logo_openfire.gif" alt="一切屋顶" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+       </h1><a id="user-content-openfire-" class="anchor" aria-label="永久链接： 开火" href="#openfire-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://github.com/igniterealtime/Openfire/actions?query=workflow%3A%22Openfire+CI%22+branch%3Amain"><img src="https://github.com/igniterealtime/Openfire/workflows/Openfire%20CI/badge.svg?branch=main" alt="开放火 CI" style="max-width: 100%;"></a>  <animated-image data-catalyst=""><a href="https://www.openhub.net/p/Openfire" rel="nofollow" data-target="animated-image.originalLink"><img src="https://camo.githubusercontent.com/f7986f250891ebc87d58d685fd3b3fbc6678607c1449aa960c76890faae5e00e/68747470733a2f2f7777772e6f70656e6875622e6e65742f702f4f70656e666972652f776964676574732f70726f6a6563745f7468696e5f62616467652e676966" alt="项目统计" data-canonical-src="https://www.openhub.net/p/Openfire/widgets/project_thin_badge.gif" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://www.openhub.net/p/Openfire" target="_blank">
+      
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于</font></font></h2><a id="user-content-about" class="anchor" aria-label="永久链接：关于" href="#about"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="http://www.igniterealtime.org/projects/openfire/index.jsp" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfire</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是根据开源 Apache 许可证获得许可的实时协作 (RTC) 服务器。它使用唯一广泛采用的即时消息开放协议 XMPP（也称为 Jabber）。 Openfire 非常容易设置和管理，但提供坚如磐石的安全性和性能。</font></font></p>
+<p dir="auto"><a href="http://www.igniterealtime.org/projects/openfire/index.jsp" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfire</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个根据开源 Apache 许可证授权的 XMPP 服务器。</font></font></p>
+<p dir="auto"><a href="http://www.igniterealtime.org/projects/openfire/index.jsp" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfire</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> - 一个</font></font><a href="http://www.igniterealtime.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ignite Realtime</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区项目。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误报告</font></font></h2><a id="user-content-bug-reporting" class="anchor" aria-label="永久链接：错误报告" href="#bug-reporting"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">只有少数用户有权填补跟踪器中的错误。新用户应该：</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建一个话语帐户</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">登录 Discourse 帐户</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单击“新主题”按钮</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">选择</font></font><a href="https://discourse.igniterealtime.org/c/openfire/openfire-dev" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Openfire Dev 类别</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并提供错误的详细描述。</font></font></li>
+</ol>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">报告之前，请在错误跟踪器中搜索您的问题。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">资源</font></font></h2><a id="user-content-resources" class="anchor" aria-label="永久链接：资源" href="#resources"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档：</font></font><a href="http://www.igniterealtime.org/projects/openfire/documentation.jsp" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.igniterealtime.org/projects/openfire/documentation.jsp</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区：</font></font><a href="https://discourse.igniterealtime.org/c/openfire" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://discourse.igniterealtime.org/c/openfire</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误跟踪器：</font></font><a href="https://igniterealtime.atlassian.net/browse/OF" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://igniterealtime.atlassian.net/browse/OF</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每晚构建：</font></font><a href="http://www.igniterealtime.org/downloads/nightly_openfire.jsp" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.igniterealtime.org/downloads/nightly_openfire.jsp</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">点燃实时</font></font></h1><a id="user-content-ignite-realtime" class="anchor" aria-label="永久链接：点燃实时" href="#ignite-realtime"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="http://www.igniterealtime.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ignite Realtime</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个开源社区，由世界各地的最终用户和开发人员组成，他们有兴趣将创新的、基于开放标准的实时协作应用于其业务和组织。我们的目标是颠覆专有的、非开放的基于标准的系统，并邀请您加入已经是最大、最活跃的开源社区之一。</font></font></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">做出改变</font></font></h1><a id="user-content-making-changes" class="anchor" aria-label="永久链接：进行更改" href="#making-changes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该项目使用</font></font><a href="https://maven.apache.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Maven</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，因此应该直接导入到您最喜欢的 Java IDE 中。目录结构相当简单。主要代码包含在：</font></font></p>
+<ul dir="auto">
+<li><code>Openfire/xmppserver</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 代表 Openfire 本身核心代码的 Maven 模块</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他文件夹有：</font></font></p>
+<ul dir="auto">
+<li><code>Openfire/build</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 各种文件用于为不同平台创建安装程序</font></font></li>
+<li><code>Openfire/distribution</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 一个 Maven 模块，用于将所有部分组合在一起</font></font></li>
+<li><code>Openfire/documentation</code><font style="vertical-align: inherit;"><a href="https://www.igniterealtime.org/projects/openfire/documentation.jsp" rel="nofollow"><font style="vertical-align: inherit;">- 位于igniterealtime.org</font></a><font style="vertical-align: inherit;">的文档</font></font><a href="https://www.igniterealtime.org/projects/openfire/documentation.jsp" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><code>Openfire/i18n</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 用于管理界面国际化的文件</font></font></li>
+<li><code>Openfire/plugins</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- Maven 配置文件，允许</font><font style="vertical-align: inherit;">构建各种可用</font></font><a href="https://www.igniterealtime.org/projects/openfire/plugins.jsp" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">插件</font></font></a><font style="vertical-align: inherit;"></font></li>
+<li><code>Openfire/starter</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- 一个小模块，允许Openfire在不同平台上以一致的方式启动</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要构建包括插件的完整项目，请运行命令</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>./mvnw verify
+</code></pre><div class="zeroclipboard-container">
+    
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然而，大多数时候只需要对核心 XMPP 服务器本身进行更改，在这种情况下，命令</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>./mvnw verify -pl distribution -am 
+</code></pre><div class="zeroclipboard-container">
+   
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将编译核心服务器和任何依赖项，然后将其组装成可以运行的东西。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">测试您的更改</font></font></h2><a id="user-content-testing-your-changes" class="anchor" aria-label="永久链接：测试您的更改" href="#testing-your-changes"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IntelliJ IDEA：</font></font></h4><a id="user-content-intellij-idea" class="anchor" aria-label="永久链接：IntelliJ IDEA：" href="#intellij-idea"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行 -&gt; 编辑配置... -&gt; 添加应用程序</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">填写以下值
+</font></font><ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">名称： 开火</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用模块的类路径：starter</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主类：org.jivesoftware.openfire.starter.ServerStarter</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">VM 选项（相应调整）：
+</font></font><div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>-DopenfireHome="-absolute path to your project folder-\distribution\target\distribution-base" 
+-Xverify:none
+-server
+-Dlog4j.configurationFile="-absolute path to your project folder-\distribution\target\distribution-base\lib\log4j2.xml"
+-Dopenfire.lib.dir="-absolute path to your project folder-\distribution\target\distribution-base\lib"
+-Dfile.encoding=UTF-8
+</code></pre><div class="zeroclipboard-container">
+   
+  </div></div>
+</li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">工作目录：-项目文件夹的绝对路径-</font></font></li>
+</ol>
+</li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">申请</font></font></li>
+</ol>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您需要先执行，</font></font><code>mvnw verify</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后才能启动 openfire。</font></font></p>
+<div class="markdown-heading" dir="auto"><h4 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其他 IDE：</font></font></h4><a id="user-content-other-ides" class="anchor" aria-label="永久链接：其他 IDE：" href="#other-ides"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">尽管您的 IDE 会很乐意编译该项目，但不幸的是，无法从 IDE 中运行 Openfire - 它必须在命令行中完成。使用Maven构建项目后，只需运行shell脚本或批处理文件即可启动Openfire；</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>./distribution/target/distribution-base/bin/openfire.sh
+</code></pre><div class="zeroclipboard-container">
+    
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>.\distribution\target\distribution-base\bin\openfire.bat
+</code></pre><div class="zeroclipboard-container">
+   
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为第一个参数添加</font></font><code>-debug</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">到脚本中将以调试模式启动服务器，并且您的 IDE 应该能够在必要时附加远程调试器。</font></font></p>
+</article></div>
